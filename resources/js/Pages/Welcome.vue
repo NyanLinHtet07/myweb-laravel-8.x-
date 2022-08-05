@@ -71,7 +71,7 @@
                         <li class=" my-2 text-sm font-medium list-disc" v-for="(l , index) in JSON.parse(project.list)" :key="index"> {{ l.name }} </li>
                     </ul>
                     <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden mb-5">
-                       {{ project.description.substring(0,300) +" ..."}}
+                       {{ project.description.substring(0,300) +" ..."}} 
                     </p>
 
                     
@@ -104,8 +104,12 @@
                 </div>
              
                
-                <p class=" mt-6 mx-1 mb-4 text-justify  whitespace-normal">
-                      {{blog.text.substring(0,400)+'...'}}
+                <p v-if="! read" class=" mt-6 mx-1 mb-4 text-justify  whitespace-normal">
+                      {{blog.text.substring(0,400)+'...'}} <small @click="readMore()" class=" text-sm font-bold text-gray-900 mx-3 cursor-pointer px-2 py-1 rounded-full bg-slate-200"> read more</small>
+                </p>
+
+                 <p v-else class=" mt-6 mx-1 mb-4 text-justify  whitespace-normal">
+                      {{blog.text}} <small @click="readLess()" class=" text-sm font-bold text-gray-900 mx-3 cursor-pointer  px-2 py-1 rounded-full bg-slate-200"> close</small>
                 </p>
                  
              </div>
@@ -216,6 +220,22 @@ import { EffectCards } from "swiper";
 import MasterLayout from '@/Layouts/MasterLayout.vue';
 export default {
     props: ['project' , 'tags', 'blog'],
+
+    data() {
+        return {
+            read: false,
+        }
+    },
+
+    methods: {
+        readMore(){
+            this.read = true;
+        },
+
+        readLess(){
+            this.read = false;
+        }
+    },
    
       setup() {
     return {
