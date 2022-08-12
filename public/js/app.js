@@ -20083,10 +20083,12 @@ var __default__ = {
     return {//showSidebar:false
     };
   },
-  // setup(){
-  //     const showSidebar = ref(false);
-  //     return { showSidebar, }
-  // },
+  setup: function setup() {
+    var showSidebar = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(false);
+    return {
+      showSidebar: showSidebar
+    };
+  },
   components: {
     MenuIcon: vue_material_design_icons_Menu_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     CloseIcon: vue_material_design_icons_CloseOutline_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -21646,7 +21648,16 @@ __webpack_require__.r(__webpack_exports__);
     return {
       modules: [swiper__WEBPACK_IMPORTED_MODULE_5__.EffectCards]
     };
-  }
+  },
+  methods: {// new(){
+    //     this.projects.map( project => {
+    //         return project.push(isOpen = false) 
+    //     })
+    // }
+  } //  created(){
+  //     this.new();
+  //  }
+
 });
 
 /***/ }),

@@ -83,6 +83,18 @@ export default {
       modules: [EffectCards],
     };
      },
+
+     methods: {
+        // new(){
+        //     this.projects.map( project => {
+        //         return project.push(isOpen = false) 
+        //     })
+        // }
+     },
+
+    //  created(){
+    //     this.new();
+    //  }
 }
 </script>
 <style scoped>

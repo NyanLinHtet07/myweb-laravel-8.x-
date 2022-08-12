@@ -111,11 +111,11 @@ export default {
         }
     },
 
-    // setup(){
-    //     const showSidebar = ref(false);
+    setup(){
+        const showSidebar = ref(false);
 
-    //     return { showSidebar, }
-    // },
+        return { showSidebar, }
+    },
 
     components:{
         MenuIcon, CloseIcon
