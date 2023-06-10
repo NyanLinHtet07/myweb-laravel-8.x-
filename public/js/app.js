@@ -21497,12 +21497,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_MasterLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/MasterLayout.vue */ "./resources/js/Layouts/MasterLayout.vue");
 /* harmony import */ var _Components_Pagination_C_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Pagination_C.vue */ "./resources/js/Components/Pagination_C.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -21512,22 +21506,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Pagination: _Components_Pagination_C_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
-    return {// more: false,
+    return {
+      datas: []
     };
   },
   methods: {
-    addData: function addData() {
-      //console.log(this.blogs.data)
-      this.blogs.data.map(function (b) {
-        //console.log(b)
-        _objectSpread(_objectSpread({}, b), {}, {
-          more: false
-        });
+    addRows: function addRows() {
+      this.datas = this.blogs.data;
+      this.datas.push({
+        isOpen: true
       });
-    }
+    } // addData(){
+    //     //console.log(this.blogs.data)
+    //     this.blogs.data.map( b => {
+    //         //console.log(b)
+    //       ({...b , more:false});
+    //     })
+    // }
+
   },
   created: function created() {
-    this.addData();
+    //this.addData();
+    this.addRows();
   }
 });
 
@@ -25207,19 +25207,17 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = {
   "class": "text-xl my-7 ml-4 font-semibold"
 };
-var _hoisted_4 = {
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex justify-start"
-};
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-for=\"(t_id,index) in JSON.parse(blog.tag_id)\" :key=\"index\">\r\n                   <div v-for=\"tag in tags\" :key=\"tag.id\">\r\n                        <div v-if=\" t_id == tag.id\">\r\n                            <small class=\" px-3 py-2 rounded-full bg-white/70 shadow-md mx-2\">{{tag.name}}</small>\r\n                        </div>\r\n                   </div>\r\n                </div>  ")], -1
+/* HOISTED */
+);
+
 var _hoisted_5 = {
-  key: 0
-};
-var _hoisted_6 = {
-  "class": "px-3 py-2 rounded-full bg-white/70 shadow-md mx-2"
-};
-var _hoisted_7 = {
   "class": "mt-6 mx-1 mb-4 text-justify"
 };
-var _hoisted_8 = {
+var _hoisted_6 = {
   "class": "mt-6 flex justify-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25235,26 +25233,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: blog.id
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(blog.title), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(JSON.parse(blog.tag_id), function (t_id, index) {
-          return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-            key: index
-          }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.tags, function (tag) {
-            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-              key: tag.id
-            }, [t_id == tag.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(tag.name), 1
-            /* TEXT */
-            )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
-          }), 128
-          /* KEYED_FRAGMENT */
-          ))]);
-        }), 128
-        /* KEYED_FRAGMENT */
-        ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\" mt-6 mx-1 mb-4 text-justify  whitespace-normal\" v-if=\"! more\">\r\n                      {{blog.text.substring(0,400)+'...'}}\r\n                      <small @click=\"readMore(blog.id)\"> More</small>\r\n                </p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(blog.text), 1
+        ), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\" mt-6 mx-1 mb-4 text-justify  whitespace-normal\" v-if=\"! more\">\r\n                      {{blog.text.substring(0,400)+'...'}}\r\n                      <small @click=\"readMore(blog.id)\"> More</small>\r\n                </p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(blog.text), 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <small @click=\"readMore\"> More</small> ")])]);
       }), 128
       /* KEYED_FRAGMENT */
-      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
         links: $props.blogs.links
       }, null, 8
       /* PROPS */
@@ -25948,7 +25932,7 @@ var _hoisted_4 = {
 var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
     "class": "text-2xl font-bold text-gray-900/90 mb-5"
-  }, " I'm a software developer, who can use Laravel, Vue and Ionic. ", -1
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" I'm a Fullstack developer, "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Who can use Laravel, React, Vue, React Native and Ionic. ")], -1
   /* HOISTED */
   );
 });
@@ -26226,21 +26210,11 @@ var _hoisted_57 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_58 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "text-center mx-4 font-title font-bold"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-    "class": "text-gray-900/90 text-2xl"
-  }, " OR ")], -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_59 = {
+var _hoisted_58 = {
   "class": "flex justify-center mb-10 mx-2 mt-5"
 };
 
-var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Message Me ");
+var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Message Me ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_PhoneIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PhoneIcon");
@@ -26399,12 +26373,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "text-teal-600/90 drop-shadow-md mx-2"
       }), _hoisted_52]), _hoisted_53]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MailIcon, {
         "class": "text-rose-600/70 drop-shadow-md mx-2"
-      }), _hoisted_56]), _hoisted_57]), _hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+      }), _hoisted_56]), _hoisted_57]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\" text-center mx-4  font-title font-bold\">\n                        <h2 class=\"text-gray-900/90 text-2xl\"> OR </h2>\n                     </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_58, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
         href: _ctx.route('contact'),
         "class": "w-full text-center text-xs md:text-sm px-3 py-2 font-title font-bold rounded-full bg-white/60 backdrop-blur-md text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_60];
+          return [_hoisted_59];
         }),
         _: 1
         /* STABLE */

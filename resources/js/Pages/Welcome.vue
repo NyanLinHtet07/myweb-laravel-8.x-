@@ -9,7 +9,7 @@
             
             <div class=" px-3 py-2 rounded-3xl w-fit mx-auto block">
                 <h1 class=" text-2xl font-bold text-gray-900/90 mb-5 ">
-                    I'm a software developer, who can use Laravel, Vue and Ionic. 
+                    I'm a Fullstack developer, <br> Who can use Laravel, React, Vue, React Native and Ionic. 
                 </h1>
 
                 <a :href="route('about')"  class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300">Resume </a>
@@ -170,9 +170,9 @@
                         <a href="mailto:nyanlinhtet206@gmail.com" class=" ml-8 font-semibold text-xs md:text-sm">nyanlinhtet206@gmail.com</a>
                      </div>
                      
-                     <div class=" text-center mx-4  font-title font-bold">
+                     <!-- <div class=" text-center mx-4  font-title font-bold">
                         <h2 class="text-gray-900/90 text-2xl"> OR </h2>
-                     </div>
+                     </div> -->
 
                     <div class=" flex justify-center mb-10 mx-2 mt-5">
                        

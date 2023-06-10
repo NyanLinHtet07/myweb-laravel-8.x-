@@ -5,13 +5,13 @@
          <div class=" mx-5 px-3 py-4 my-8 rounded-3xl bg-white/60 z-10 h-fit" v-for=" blog in blogs.data" :key="blog.id">
                 <h1 class=" text-xl my-7 ml-4 font-semibold">  {{blog.title}} </h1>
                 <div class=" flex justify-start">
-                       <div v-for="(t_id,index) in JSON.parse(blog.tag_id)" :key="index">
+                       <!-- <div v-for="(t_id,index) in JSON.parse(blog.tag_id)" :key="index">
                    <div v-for="tag in tags" :key="tag.id">
                         <div v-if=" t_id == tag.id">
                             <small class=" px-3 py-2 rounded-full bg-white/70 shadow-md mx-2">{{tag.name}}</small>
                         </div>
                    </div>
-                </div> 
+                </div>  -->
                 </div>
              
                
@@ -48,22 +48,28 @@ export default {
     },
     data() {
         return {
-            // more: false,
+           datas:[]
         }
     },
 
     methods: {
-        addData(){
-            //console.log(this.blogs.data)
-            this.blogs.data.map( b => {
-                //console.log(b)
-              ({...b , more:false});
-            })
-        }
+        addRows(){
+            this.datas = this.blogs.data
+            this.datas.push({isOpen:true});
+        },
+
+        // addData(){
+        //     //console.log(this.blogs.data)
+        //     this.blogs.data.map( b => {
+        //         //console.log(b)
+        //       ({...b , more:false});
+        //     })
+        // }
     },
 
     created() {
-        this.addData();
+        //this.addData();
+        this.addRows();
     },
 
    
