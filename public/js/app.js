@@ -21497,6 +21497,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_MasterLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/MasterLayout.vue */ "./resources/js/Layouts/MasterLayout.vue");
 /* harmony import */ var _Components_Pagination_C_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Pagination_C.vue */ "./resources/js/Components/Pagination_C.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -21513,17 +21519,26 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addRows: function addRows() {
       this.datas = this.blogs.data;
-      this.datas.push({
-        isOpen: true
+      this.datas = this.datas.map(function (obj) {
+        return _objectSpread(_objectSpread({}, obj), {}, {
+          isOpen: false
+        });
       });
-    } // addData(){
-    //     //console.log(this.blogs.data)
-    //     this.blogs.data.map( b => {
-    //         //console.log(b)
-    //       ({...b , more:false});
-    //     })
-    // }
-
+    },
+    readMore: function readMore(id) {
+      this.datas.map(function (data) {
+        if (data.id == id) {
+          data.isOpen = true;
+        }
+      });
+    },
+    readLess: function readLess(id) {
+      this.datas.map(function (data) {
+        if (data.id == id) {
+          data.isOpen = false;
+        }
+      });
+    }
   },
   created: function created() {
     //this.addData();
@@ -25207,17 +25222,26 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = {
   "class": "text-xl my-7 ml-4 font-semibold"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_4 = {
   "class": "flex justify-start"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-for=\"(t_id,index) in JSON.parse(blog.tag_id)\" :key=\"index\">\r\n                   <div v-for=\"tag in tags\" :key=\"tag.id\">\r\n                        <div v-if=\" t_id == tag.id\">\r\n                            <small class=\" px-3 py-2 rounded-full bg-white/70 shadow-md mx-2\">{{tag.name}}</small>\r\n                        </div>\r\n                   </div>\r\n                </div>  ")], -1
-/* HOISTED */
-);
-
+};
 var _hoisted_5 = {
-  "class": "mt-6 mx-1 mb-4 text-justify"
+  key: 0
 };
 var _hoisted_6 = {
+  "class": "px-3 py-2 rounded-full bg-white/70 shadow-md mx-2"
+};
+var _hoisted_7 = {
+  key: 0,
+  "class": "mt-6 mx-1 mb-4 text-justify whitespace-normal"
+};
+var _hoisted_8 = ["onClick"];
+var _hoisted_9 = {
+  key: 1,
+  "class": "mt-6 mx-1 mb-4 text-justify"
+};
+var _hoisted_10 = ["onClick"];
+var _hoisted_11 = {
   "class": "mt-6 flex justify-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25227,18 +25251,48 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_MasterLayout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.blogs.data, function (blog) {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.datas, function (blog) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           "class": "mx-5 px-3 py-4 my-8 rounded-3xl bg-white/60 z-10 h-fit",
           key: blog.id
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(blog.title), 1
         /* TEXT */
-        ), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\" mt-6 mx-1 mb-4 text-justify  whitespace-normal\" v-if=\"! more\">\r\n                      {{blog.text.substring(0,400)+'...'}}\r\n                      <small @click=\"readMore(blog.id)\"> More</small>\r\n                </p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(blog.text), 1
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(JSON.parse(blog.tag_id), function (t_id, index) {
+          return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+            key: index
+          }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.tags, function (tag) {
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+              key: tag.id
+            }, [t_id == tag.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(tag.name), 1
+            /* TEXT */
+            )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+          }), 128
+          /* KEYED_FRAGMENT */
+          ))]);
+        }), 128
+        /* KEYED_FRAGMENT */
+        ))]), blog.isOpen === false ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(blog.text.substring(0, 400) + '...') + " ", 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <small @click=\"readMore\"> More</small> ")])]);
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", {
+          onClick: function onClick($event) {
+            return $options.readMore(blog.id);
+          },
+          "class": "text-sm float-left font-bold text-gray-900 mx-3 cursor-pointer px-2 py-1 rounded-full bg-slate-200"
+        }, " More ", 8
+        /* PROPS */
+        , _hoisted_8)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(blog.text) + " ", 1
+        /* TEXT */
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", {
+          onClick: function onClick($event) {
+            return $options.readLess(blog.id);
+          },
+          "class": "text-sm text-center font-bold text-gray-900 mx-3 cursor-pointer px-2 py-1 rounded-full bg-slate-200"
+        }, " less ", 8
+        /* PROPS */
+        , _hoisted_10)]))]);
       }), 128
       /* KEYED_FRAGMENT */
-      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
         links: $props.blogs.links
       }, null, 8
       /* PROPS */
